@@ -32,7 +32,7 @@ pipeline {
       stage('Build Docker Image'){
             steps{
                echo "Packaging..."
-               sh "sudo docker build -t knox-rest:${GIT_BRANCH}-${GIT_COMMIT} ."
+               sh "sudo docker build -t sakshigawande12/knox-rest:${GIT_BRANCH}-${GIT_COMMIT} ."
             }
         }
         stage('Push Docker Image'){
