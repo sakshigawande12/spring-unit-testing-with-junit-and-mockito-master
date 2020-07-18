@@ -45,12 +45,12 @@ pipeline {
         }
   stage('B1') {
             steps {
-     sh label: '', script: '''curl "https://api.GitHub.com/repos/sakshigawande12/spring-unit-testing-with-junit-and-mockito-master/statuses/$GIT_COMMIT?access_token=981699c079fec7d12baab41e026dccd8634db855 
-" \\
-  -H "Content-Type: application/json" \\
-  -X POST \\
-  -d "{\\"state\\": \\"success\\",\\"context\\": \\"continuous-integration/jenkins\\", \\"description\\": \\"Jenkins\\", \\"target_url\\": \\"http://34.72.39.165:8080/job/multi-branch-pipeline/$BUILD_NUMBER/console\\"}"'''
-    }
+            sh label: '', script: '''curl "https://api.GitHub.com/repos/sakshigawande12/spring-unit-testing-with-junit-and-mockito-master/statuses/$GIT_COMMIT?access_token=981699c079fec7d12baab41e026dccd8634db855
+            " \\
+              -H "Content-Type: application/json" \\
+              -X POST \\
+              -d "{\\"state\\": \\"success\\",\\"context\\": \\"continuous-integration/jenkins\\", \\"description\\": \\"Jenkins\\", \\"target_url\\": \\"http://104.154.65.36:8080/job/multi-branch-pipeline/$BUILD_NUMBER/console\\"}"'''
+     }
    }
   stage('B2') {
             steps {
@@ -61,13 +61,5 @@ pipeline {
   -d "{\\"state\\": \\"failure\\",\\"context\\": \\"continuous-integration/jenkins\\", \\"description\\": \\"Jenkins\\", \\"target_url\\": \\"http://34.72.39.165:8080/job/multi-branch-pipeline/$BUILD_NUMBER/console\\"}"'''
     }
    }
-
-     
     }
- post{
-  success{
-  githubNotify account: 'sakshigawande12', context: 'build-status', credentialsId: '981699c079fec7d12baab41e026dccd8634db855 
-', description: 'failed', gitApiUrl: '', repo: 'HelloWorld', sha: "${GIT_COMMIT}", status: 'FAILURE', targetUrl: 'http://34.72.39.165:8080/'
-  }
-}
 }
