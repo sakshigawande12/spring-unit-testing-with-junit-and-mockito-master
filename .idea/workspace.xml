@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e550be25-7141-4732-90e7-260d6dc37df2" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1eqzj7rKvXKgKp4WOgL4sfBru4Q" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="SbtLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$USER_HOME$/BookStore-App-In-Play-master" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/Scala-Course/example" value="PREVIEW" />
+        <entry key="$USER_HOME$/Documents/knowledge-portal-rest-sample-service" value="PREVIEW" />
+        <entry key="$USER_HOME$/Downloads/AkkaKillTheCharactersGame-master" value="PREVIEW" />
+        <entry key="$USER_HOME$/Downloads/gatling-charts-highcharts-bundle-3.2.1" value="PREVIEW" />
+        <entry key="$USER_HOME$/Downloads/gatling-sbt-plugin-demo-master" value="PREVIEW" />
+        <entry key="$USER_HOME$/Downloads/knowledge-portal-rest-additional-utilities" value="PREVIEW" />
+        <entry key="$USER_HOME$/Downloads/knowledge-portal-rest-develop" value="PREVIEW" />
+        <entry key="$USER_HOME$/Downloads/knowledge-portal-rest-sample-service" value="PREVIEW" />
+        <entry key="$USER_HOME$/Downloads/knowledge-portal-rest-task-59-create-uploadVideo-route-video-uploading-service" value="PREVIEW" />
+        <entry key="$USER_HOME$/Downloads/knowledge-portal-ui" value="PREVIEW" />
+        <entry key="$USER_HOME$/Downloads/playing-reactjs.g8-master" value="PREVIEW" />
+        <entry key="$USER_HOME$/Downloads/webinar-master" value="PREVIEW" />
+        <entry key="$USER_HOME$/HEB/forecast_manager/backend_api" value="PREVIEW" />
+        <entry key="$USER_HOME$/IdeaProjects/gcp-with-cloud-run" value="PREVIEW" />
+        <entry key="$USER_HOME$/IdeaProjects/knolx-portal-master" value="PREVIEW" />
+        <entry key="$USER_HOME$/IdeaProjects/knowledge-portal-rest" value="PREVIEW" />
+        <entry key="$USER_HOME$/IdeaProjects/knowledge-portal-ui" value="PREVIEW" />
+        <entry key="$USER_HOME$/IdeaProjects/play-framework-poc" value="PREVIEW" />
+        <entry key="$USER_HOME$/IdeaProjects/play-sample-chat-master" value="PREVIEW" />
+        <entry key="$USER_HOME$/IdeaProjects/play-websocket-echo-master" value="PREVIEW" />
+        <entry key="$USER_HOME$/IdeaProjects/scala-01" value="PREVIEW" />
+        <entry key="$USER_HOME$/IdeaProjects/websocket-chat-server-master" value="PREVIEW" />
+        <entry key="$USER_HOME$/LAS-P-lightbend-akka-for-scala-professional-v1" value="PREVIEW" />
+        <entry key="$USER_HOME$/Test" value="PREVIEW" />
+        <entry key="$USER_HOME$/bbcdzREST-master" value="PREVIEW" />
+        <entry key="$USER_HOME$/everything" value="PREVIEW" />
+        <entry key="$USER_HOME$/play-framework-poc-master" value="PREVIEW" />
+        <entry key="$USER_HOME$/play-samples-play-scala-hello-world-tutorial" value="PREVIEW" />
+        <entry key="$USER_HOME$/projectBackup/Decline changes/knowledge-portal-ui" value="PREVIEW" />
+        <entry key="$USER_HOME$/projectBackup/knolx-portal-master" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e550be25-7141-4732-90e7-260d6dc37df2" name="Default Changelist" comment="" />
+      <created>1595064042236</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1595064042236</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="372" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1595066422426">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="372" y="224" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1595066422426" />
+    <state x="361" y="127" width="710" height="538" key="find.popup" timestamp="1595065456207">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="361" y="127" width="710" height="538" key="find.popup/67.27.1299.741@67.27.1299.741" timestamp="1595065456207" />
+    <state x="379" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1595065435909">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="379" y="89" width="672" height="678" key="search.everywhere.popup/67.27.1299.741@67.27.1299.741" timestamp="1595065435909" />
+  </component>
+</project>
