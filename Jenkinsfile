@@ -62,9 +62,4 @@ pipeline {
 
      
     }
- post{
-  success{
-  githubNotify account: 'sakshigawande12', context: 'build-status', credentialsId: '', description: 'failed', gitApiUrl: '', repo: 'HelloWorld', sha: "${GIT_COMMIT}", status: 'FAILURE', targetUrl: 'http://34.72.39.165:8080/'
-  }
-}
 }
