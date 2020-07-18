@@ -45,7 +45,7 @@ pipeline {
         }
   stage('B1') {
             steps {
-     sh label: '', script: '''curl "https://api.GitHub.com/repos/sakshigawande12/spring-unit-testing-with-junit-and-mockito-master/statuses/$GIT_COMMIT?access_token=saksH@123" \\
+     sh label: '', script: '''curl "https://api.GitHub.com/repos/sakshigawande12/spring-unit-testing-with-junit-and-mockito-master/statuses/$GIT_COMMIT?access_token=e770bb9ff5a7a2a5125011b1915eb22f5531306a" \\
   -H "Content-Type: application/json" \\
   -X POST \\
   -d "{\\"state\\": \\"success\\",\\"context\\": \\"continuous-integration/jenkins\\", \\"description\\": \\"Jenkins\\", \\"target_url\\": \\"http://34.72.39.165:8080/job/multi-branch-pipeline/$BUILD_NUMBER/console\\"}"'''
@@ -53,7 +53,7 @@ pipeline {
    }
   stage('B2') {
             steps {
-     sh label: '', script: '''curl "https://api.GitHub.com/repos/sakshigawande12/spring-unit-testing-with-junit-and-mockito-master/statuses/$GIT_COMMIT?access_token=saksH@123" \\
+     sh label: '', script: '''curl "https://api.GitHub.com/repos/sakshigawande12/spring-unit-testing-with-junit-and-mockito-master/statuses/$GIT_COMMIT?access_token=e770bb9ff5a7a2a5125011b1915eb22f5531306a" \\
   -H "Content-Type: application/json" \\
   -X POST \\
   -d "{\\"state\\": \\"failure\\",\\"context\\": \\"continuous-integration/jenkins\\", \\"description\\": \\"Jenkins\\", \\"target_url\\": \\"http://34.72.39.165:8080/job/multi-branch-pipeline/$BUILD_NUMBER/console\\"}"'''
