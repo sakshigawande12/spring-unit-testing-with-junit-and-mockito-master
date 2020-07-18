@@ -60,9 +60,7 @@ pipeline {
   -X POST \\
   -d "{\\"state\\": \\"failure\\",\\"context\\": \\"continuous-integration/jenkins\\", \\"description\\": \\"Jenkins\\", \\"target_url\\": \\"http://34.72.39.165:8080/job/multi-branch-pipeline/$BUILD_NUMBER/console\\"}"'''
     }
-   }
-
-     
+   }  
     }
  post{
   success{
