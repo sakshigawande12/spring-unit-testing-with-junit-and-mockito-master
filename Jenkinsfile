@@ -40,7 +40,7 @@ pipeline {
              withCredentials([string(credentialsId: 'dockerPwd', variable: 'dockerPwd')]) {
                     sh "sudo docker login -u sakshigawande12 -p ${dockerPwd} "
                   }
-               sh "sudo docker push sakshigawande12/knolx-rest:2.0.0"
+               sh "sudo docker push sakshigawande12/${GIT_BRANCH}-${GIT_COMMIT}"
             }
         }
 
