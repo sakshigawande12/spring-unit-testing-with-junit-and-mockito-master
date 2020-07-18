@@ -62,10 +62,4 @@ pipeline {
     }
    }  
     }
- post{
-  success{
-  githubNotify account: 'sakshigawande12', context: 'build-status', credentialsId: '981699c079fec7d12baab41e026dccd8634db855 
-', description: 'failed', gitApiUrl: '', repo: 'HelloWorld', sha: "${GIT_COMMIT}", status: 'FAILURE', targetUrl: 'http://34.72.39.165:8080/'
-  }
-}
 }
