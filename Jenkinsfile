@@ -7,7 +7,6 @@ pipeline {
                          sh "mvn clean compile"
              }
       }
-
         stage('Test') {
             steps {
                 echo "Testing..."
