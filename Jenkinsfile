@@ -52,5 +52,14 @@ sh label: '', script: '''curl "https://api.GitHub.com/repos/sakshigawande12/spri
 '''
      }
    }
+
+  stage('Deploy to test'){
+    steps {
+        dir('deployment'){ //do this in the deployment directory!
+            echo 'Deploying to test'
+            sh 'ansible-playbook mail.yml'
+        }
+      }
+    }
   }
 }
