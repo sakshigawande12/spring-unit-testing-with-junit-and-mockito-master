@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.in28minutes.unittesting.unittesting.controller.HelloWorldControllerTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.794 s - in com.in28minutes.unittesting.unittesting.controller.HelloWorldControllerTest
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.787 s <<< FAILURE! - in com.in28minutes.unittesting.unittesting.controller.HelloWorldControllerTest
+helloWorld_basic  Time elapsed: 0.122 s  <<< FAILURE!
+java.lang.AssertionError: Response content expected:<Hello World> but was:<Hello World b,mhk,>
+	at com.in28minutes.unittesting.unittesting.controller.HelloWorldControllerTest.helloWorld_basic(HelloWorldControllerTest.java:31)
+
