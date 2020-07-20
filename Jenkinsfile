@@ -34,9 +34,10 @@ pipeline {
                 }
                 stage('Checkstyle') {
                     steps {
-                        sh "mvn checkstyle:checkstyle"
-                        checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '**/checkstyle-result.xml', unHealthy: ''
+                         sh "mvn checkstyle:checkstyle"
                         recordIssues(tools: [mavenConsole(pattern: '**/checkstyle-results.xml\'')])
+                        recordIssues(tools: [checkStyle(reportEncoding: 'UTF-8')])
+                        checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '**/checkstyle-result.xml', unHealthy: ''
                         }
                     }
                 }
