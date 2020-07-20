@@ -42,6 +42,7 @@ pipeline {
             }
          stage('Publish issue') {
             steps {
+               echo "build on warning numbers"
                publishIssues healthy: 100, issues: [], qualityGates: [[threshold: 105, type: 'TOTAL', unstable: false]], sourceCodeEncoding: 'UTF-8', unhealthy: 105
                 }
              }
