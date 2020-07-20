@@ -40,6 +40,11 @@ pipeline {
                     }
                 }
             }
+         stage('Checkstyle') {
+            steps {
+               publishIssues healthy: 100, issues: [], qualityGates: [[threshold: 105, type: 'TOTAL', unstable: false]], sourceCodeEncoding: 'UTF-8', unhealthy: 105
+                }
+             }
          stage('Build Docker Image'){
             steps{
                echo "Packaging..."
