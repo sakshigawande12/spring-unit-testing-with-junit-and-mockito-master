@@ -25,6 +25,21 @@ pipeline {
                 sh "mvn validate"
             }
          }
+        stage('Build') {
+            parallel {
+                stage('Maven build') {
+                    steps {
+                        sh "mvn clean install"    
+                    }
+                }
+                stage('Checkstyle') {
+                    steps {
+                        sh "mvn checkstyle:checkstyle"
+                        checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: ' **/checkstyle-result.xml.', unHealthy: ''
+                        recordIssues(tools: [checkStyle(reportEncoding: 'UTF-8')])
+                    }
+                }
+            }
          stage('Build Docker Image'){
             steps{
                echo "Packaging..."
