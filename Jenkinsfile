@@ -53,11 +53,11 @@ pipeline {
                 input("does the project  is ready to deploy ?")
              }
          }
-         stage('Deploy to test'){
+         stage('Deploy to Dev'){
              steps {
                dir('deployment'){ //do this in the deployment directory!
                   echo 'Deploying to test'
-                sh 'ansible-playbook -i /etc/ansible/hosts-list /etc/ansible/main.yml'
+                sh 'ansible-playbook -i /etc/ansible/hosts /etc/ansible/main.yml'
                }
              }
          }
