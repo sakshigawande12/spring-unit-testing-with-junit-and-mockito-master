@@ -36,7 +36,6 @@ pipeline {
                     steps {
                          sh "mvn checkstyle:checkstyle"
                         recordIssues(tools: [checkStyle(reportEncoding: 'UTF-8')])
-                        checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '**/checkstyle-result.xml', unHealthy: ''
                         }
                     }
                 }
