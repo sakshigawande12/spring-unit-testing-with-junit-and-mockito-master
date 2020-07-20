@@ -35,7 +35,7 @@ pipeline {
                 stage('Checkstyle') {
                     steps {
                          sh "mvn checkstyle:checkstyle"
-                        recordIssues(tools: [mavenConsole(pattern: '**/checkstyle-results.xml\'')])
+                        recordIssues(tools: [mavenConsole(pattern: '**/target/checkstyle-results.xml\'')])
                         }
                     }
                 }
