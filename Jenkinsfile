@@ -43,8 +43,7 @@ pipeline {
          stage('Publish issue') {
             steps {
                echo "build on warning numbers"
-               publishIssues healthy: 100, issues: [], qualityGates: [[threshold: 105, type: 'TOTAL', unstable: false]], sourceCodeEncoding: 'UTF-8', unhealthy: 105
-                }
+               recordIssues tools: [checkStyle(reportEncoding: 'UTF-8', pattern: '*.xml')],qualityGates: [[threshold: 1, type: 'TOTAL', unstable: true]]                }
              }
          stage('Build Docker Image'){
             steps{
