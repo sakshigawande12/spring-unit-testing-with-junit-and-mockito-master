@@ -52,7 +52,6 @@ object Build : BuildType({
         vcs {
         }
     }
-
     features {
         dockerSupport {
             cleanupPushedImages = true
