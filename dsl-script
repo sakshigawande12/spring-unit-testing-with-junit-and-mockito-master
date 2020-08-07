@@ -1,0 +1,65 @@
+package _Self.buildTypes
+
+import jetbrains.buildServer.configs.kotlin.v2019_2.*
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.dockerSupport
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dockerCommand
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.maven
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
+import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
+
+object Build : BuildType({
+    name = "Project-1"
+    description = "this the first teamcity project"
+
+    vcs {
+        root(HttpsGithubComSakshigawande12springUnitTestingWithJunitAndMockitoMasterGitRefsHeadsMaster)
+
+        cleanCheckout = true
+    }
+    steps {
+        maven {
+            goals = "clean test"
+            runnerArgs = "-Dmaven.test.failure.ignore=true"
+        }
+        maven {
+            name = "Maven"
+            goals = "package"
+        }
+        maven {
+            name = "Maven (1)"
+            goals = "validate"
+        }
+        maven {
+            name = "run project"
+            goals = "install"
+        }
+        script {
+            name = "run"
+            scriptContent = "java -jar target/unit-testing-0.0.1-SNAPSHOT.jar"
+        }
+        dockerCommand {
+            name = "build image"
+            commandType = build {
+                source = file {
+                    path = "Dockerfile"
+                }
+                namesAndTags = "sakshigawande12/teamcity1:%build.number%"
+                commandArgs = "--pull"
+            }
+        }
+    }
+    triggers {
+        vcs {
+        }
+    }
+
+    features {
+        dockerSupport {
+            cleanupPushedImages = true
+            loginToRegistry = on {
+                dockerRegistryId = "PROJECT_EXT_2"
+            }
+        }
+    }
+})
+
