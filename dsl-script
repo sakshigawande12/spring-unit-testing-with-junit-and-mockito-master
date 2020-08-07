@@ -44,7 +44,7 @@ object Build : BuildType({
                     path = "Dockerfile"
                 }
                 namesAndTags = "sakshigawande12/teamcity1:%build.number%"
-                commandArgs = "--pull"
+                commandArgs = "-t"
             }
         }
     }
