@@ -31,8 +31,8 @@ jobs:
 
     - name: Build and push docker image
       uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: ./Dockerfile
-          push: true
-          tags: sakshigawande12/app:latest
+      with:
+        context: .
+        file: ./Dockerfile
+        push: true
+        tags: sakshigawande12/app:latest
