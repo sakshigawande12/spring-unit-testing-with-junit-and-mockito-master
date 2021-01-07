@@ -10,7 +10,7 @@ on:
     branches: [ ci-using-github-actions ]
   schedule:
     - cron: '0 12 * * *'
-    repository_dispatch:
+  repository_dispatch:
 
 jobs:
   job1:
