@@ -14,7 +14,7 @@ on:
 
 jobs:
   job1:
-  build:
+    name: build
     runs-on: ubuntu-latest
 
     steps:
@@ -43,7 +43,7 @@ jobs:
         push: true
         tags: sakshigawande12/app:latest
   job2:
-  ping-pong:
+    name: ping-pong
     runs-on: ubuntu-latest
     steps:
       - name: PING - Dispatch initiating repository event
