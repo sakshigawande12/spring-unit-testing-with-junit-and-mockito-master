@@ -5,9 +5,9 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ ci-using-github-actions ]
+    branches: [ master ]
   pull_request:
-    branches: [ ci-using-github-actions ]
+    branches: [ master ]
   schedule:
     - cron: '0 12 * * *'
   repository_dispatch:
