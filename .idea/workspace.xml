@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e550be25-7141-4732-90e7-260d6dc37df2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/maven.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/maven.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +27,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/knowledge-portal-rest" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.16113281" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -96,29 +95,13 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="494" y="105" width="424" height="585" key="FileChooserDialogImpl" timestamp="1599201208965">
+    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1610706050844">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="494" y="105" width="424" height="585" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1599201208965" />
-    <state x="296" y="96" width="884" height="602" key="NewModule_or_Project.wizard" timestamp="1598364878628">
+    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1610706050844" />
+    <state x="372" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1610454373723">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="296" y="96" width="884" height="602" key="NewModule_or_Project.wizard/67.27.1299.741@67.27.1299.741" timestamp="1598364878628" />
-    <state x="199" y="27" width="1024" height="741" key="SettingsEditor" timestamp="1598364890974">
-      <screen x="67" y="27" width="1299" height="741" />
-    </state>
-    <state x="199" y="27" width="1024" height="741" key="SettingsEditor/67.27.1299.741@67.27.1299.741" timestamp="1598364890974" />
-    <state x="372" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1596775541893">
-      <screen x="67" y="27" width="1299" height="741" />
-    </state>
-    <state x="372" y="224" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1596775541893" />
-    <state x="361" y="127" width="748" height="538" key="find.popup" timestamp="1598364920301">
-      <screen x="67" y="27" width="1299" height="741" />
-    </state>
-    <state x="361" y="127" width="748" height="538" key="find.popup/67.27.1299.741@67.27.1299.741" timestamp="1598364920301" />
-    <state x="379" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1595065435909">
-      <screen x="67" y="27" width="1299" height="741" />
-    </state>
-    <state x="379" y="89" width="672" height="678" key="search.everywhere.popup/67.27.1299.741@67.27.1299.741" timestamp="1595065435909" />
+    <state x="372" y="224" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1610454373723" />
   </component>
 </project>
