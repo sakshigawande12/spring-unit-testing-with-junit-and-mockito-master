@@ -70,7 +70,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: SonarCloud Scan
-        run: ./mvnw -B verify sonar:sonar -Dsonar.projectKey=sakshigawande12_spring-unit-testing-with-junit-and-mockito-master -Dsonar.organization=sakshigawande12 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
+        run: ./mvn -B verify sonar:sonar -Dsonar.projectKey=sakshigawande12_spring-unit-testing-with-junit-and-mockito-master -Dsonar.organization=sakshigawande12 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
