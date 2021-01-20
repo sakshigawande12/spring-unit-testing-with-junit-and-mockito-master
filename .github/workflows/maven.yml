@@ -26,7 +26,7 @@ jobs:
 
       - name: print env
         env:
-          GITHUB_RUN_NUMBER
+          GITHUB_RUN_NUMBER=1
         run: echo "${{GITHUB_RUN_NUMBER}}"
 
       - name: Validate code
