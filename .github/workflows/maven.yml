@@ -25,9 +25,7 @@ jobs:
           java-version: 1.8
 
       - name: print env
-        env:
-          GITHUB_RUN_NUMBER=1
-        run: echo "${{GITHUB_RUN_NUMBER}}"
+        run: env
 
       - name: Validate code
         run: mvn validate
