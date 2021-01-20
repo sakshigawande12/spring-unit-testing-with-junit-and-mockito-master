@@ -54,5 +54,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: sakshigawande12/maven-app:$GITHUB_RUN_ID
-
+          tags: sakshigawande12/maven-app:0.1
