@@ -5,9 +5,9 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ master ]
+    branches: [ github-action-for-docker-and-schedule-event ]
   pull_request:
-    branches: [ master ]
+    branches: [ github-action-for-docker-and-schedule-event ]
   schedule:
     - cron: '0 12 * * *'
   repository_dispatch:
@@ -23,7 +23,17 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Build with Maven
+
+      - name: Validate code
+        run: mvn validate
+
+      - name: Compile
+        run: mvn clean compile
+
+      - name: Testing
+        run: mvn test
+
+      - name: Create artifact
         run: mvn -B package --file pom.xml
 
       - name: Set up Docker Buildx
@@ -41,27 +51,8 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: sakshigawande12/app:latest
-  job2:
-    name: ping-pong
-    runs-on: ubuntu-latest
-    steps:
-      - name: PING - Dispatch initiating repository event
-        if: github.event.action != 'pong'
-        run: |
-          curl -X POST https://api.github.com/repos/sakshigawande12/HelloWorld/dispatches \
-          -H 'Accept: application/vnd.github.everest-preview+json' \
-          -u ${{ secrets.ACCESS_TOKEN }} \
-          --data '{"event_type": "ping", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
-      - name: ACK - Acknowledge pong from remote repository
-        if: github.event.action == 'pong'
-        run: |
-          echo "PONG received from '${{ github.event.client_payload.repository }}'" && \
-          curl -X POST https://api.github.com/repos/sakshigawande12/HelloWorld/dispatches \
-          -H 'Accept: application/vnd.github.everest-preview+json' \
-          -u ${{ secrets.ACCESS_TOKEN }} \
-          --data '{"event_type": "ack", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
-           
+          tags: sakshigawande12/maven-app:$GITHUB_RUN_NUMBER
+
   job3:
     name: sonarcloud
     runs-on: ubuntu-latest
