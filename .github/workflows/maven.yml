@@ -51,7 +51,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: sakshigawande12/maven-app:$GITHUB_RUN_NUMBER
+          tags: sakshigawande12/maven-app:${GITHUB_RUN_NUMBER}
 
   job3:
     name: sonarcloud
