@@ -36,9 +36,6 @@ jobs:
       - name: Create artifact
         run: mvn -B package --file pom.xml
 
-      - name: tags
-        run: VERSION=$(echo "${{ GITHUB_RUN_NUMBER }}"
-
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
 
