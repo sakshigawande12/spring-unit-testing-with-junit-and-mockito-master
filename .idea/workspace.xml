@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e550be25-7141-4732-90e7-260d6dc37df2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.github/workflows/maven.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/maven.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.in28minutes.unittesting.unittesting.UnitTestingApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.in28minutes.unittesting.unittesting.UnitTestingApplicationTests.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.in28minutes.unittesting.unittesting.business.ItemBusinessServiceTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.in28minutes.unittesting.unittesting.business.ItemBusinessServiceTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.in28minutes.unittesting.unittesting.business.ListMockTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.in28minutes.unittesting.unittesting.business.ListMockTest.xml" afterDir="false" />
