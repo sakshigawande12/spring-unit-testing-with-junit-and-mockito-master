@@ -56,6 +56,13 @@ jobs:
           push: true
           tags: sakshigawande12/maven-app:0.1
 
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          command: monitor
+
       - name: Run Snyk to check Docker image for vulnerabilities
           # Snyk can be used to break the build when it detects vulnerabilities.
           # In this case we want to upload the issues to GitHub Code Scanning
