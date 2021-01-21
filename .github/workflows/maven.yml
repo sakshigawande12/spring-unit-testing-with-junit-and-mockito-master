@@ -54,11 +54,14 @@ jobs:
       - name: Read Docker Image Identifiers
         run: echo ::set -env name=IMAGE_REPOSITORY::$(echo $GITHUB_RUN_NUMBER)
 
+      - name: print tag
+        run: echo $IMAGE_REPOSITORY
+
       - name: Build and push docker image
         uses: docker/build-push-action@v1
         with:
-          context: .
-          file: ./Dockerfile
+          path: .
+          dockerfile: ./Dockerfile
           push: true
           registry: sakshigawande12
           repository: maven-app
