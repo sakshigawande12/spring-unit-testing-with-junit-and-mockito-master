@@ -75,7 +75,7 @@ jobs:
           push: true
           registry: sakshigawande12
           repository: maven-app
-          tags: ${{GITHUB_RUN_NUMBER}}
+          tags: $GITHUB_RUN_NUMBER
 
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
