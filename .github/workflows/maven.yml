@@ -74,7 +74,7 @@ jobs:
           tags: ${{env.IMAGE_REPOSITORY}}
 
       - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/node@master
+        uses: snyk/actions/maven@master
         continue-on-error: true
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
