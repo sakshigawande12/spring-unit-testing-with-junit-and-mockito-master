@@ -60,7 +60,9 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: sakshigawande12/maven-app:${{env.IMAGE_REPOSITORY}}
+          registry: sakshigawande12
+          repository: maven-app
+          tags: ${{env.IMAGE_REPOSITORY}}
 
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
