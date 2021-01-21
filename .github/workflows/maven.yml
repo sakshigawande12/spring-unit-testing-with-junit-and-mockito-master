@@ -54,7 +54,9 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: sakshigawande12/maven-app:${{ env.GITHUB_RUN_NUMBER }}
+          tags: sakshigawande12/maven-app:$version
+        env:
+          version: 0.0.1
 
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
