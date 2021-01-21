@@ -57,7 +57,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: sakshigawande12/maven-app:test
+          tags: sakshigawande12/maven-app:$GITHUB_RUN_NUMBER
 
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
@@ -78,6 +78,6 @@ jobs:
             # or you can signup for free at https://snyk.co/SignUpGH
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          image: sakshigawande12/maven-app:0.1
+          image: sakshigawande12/maven-app:$GITHUB_RUN_NUMBER
           args: --file=Dockerfile
 
