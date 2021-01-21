@@ -52,7 +52,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build --file Dockerfile --tag sakshigawande12/rclone:$GITHUB_RUN_NUMBER
+        run: docker build --file Dockerfile --tag sakshigawande12/rclone:$GITHUB_RUN_NUMBER .
 
       - name: push Docker image
         run: docker push  sakshigawande12/rclone:$GITHUB_RUN_NUMBER
