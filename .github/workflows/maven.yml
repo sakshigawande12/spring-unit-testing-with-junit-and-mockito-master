@@ -24,6 +24,13 @@ jobs:
         with:
           java-version: 1.8
 
+      - name: Hello world
+        run: echo Hello world $FIRST_NAME $middle_name $Last_Name!
+        env:
+         FIRST_NAME: Mona
+         middle_name: The
+         Last_Name: Octocat
+
       - name: print env
         run: env
 
@@ -54,9 +61,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: sakshigawande12/maven-app:$version
-        env:
-          version: 0.0.1
+          tags: sakshigawande12/maven-app:test
 
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
