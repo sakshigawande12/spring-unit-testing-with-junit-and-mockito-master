@@ -51,6 +51,12 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
+      - name: Build Docker image
+        run: docker build --file Dockerfile --tag sakshigawande12/rclone:$GITHUB_RUN_NUMBER
+
+      - name: push Docker image
+        run: docker push  sakshigawande12/rclone:$GITHUB_RUN_NUMBER
+
       - name: Read Docker Image Identifiers
         run: echo ::set -env name=IMAGE_REPOSITORY::$(echo $GITHUB_RUN_NUMBER)
 
@@ -66,16 +72,6 @@ jobs:
           registry: sakshigawande12
           repository: maven-app
           tags: ${{env.IMAGE_REPOSITORY}}
-
-      - name: Build and push docker image2
-        uses: docker/build-push-action@v1
-        with:
-          path: .
-          dockerfile: ./Dockerfile
-          push: true
-          registry: sakshigawande12
-          repository: maven-app
-          tags: $GITHUB_RUN_NUMBER
 
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
