@@ -51,13 +51,16 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
+      - name: Read Docker Image Identifiers
+        run: echo ::set-env name=IMAGE_REPOSITORY::$(echo ${{ GITHUB_RUN_NUMBER }}
+
       - name: Build and push docker image
         uses: docker/build-push-action@v2
         with:
           context: .
           file: ./Dockerfile
           push: true
-          tags: sakshigawande12/maven-app:$GITHUB_RUN_NUMBER
+          tags: sakshigawande12/maven-app:${{env.IMAGE_REPOSITORY}}
 
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
