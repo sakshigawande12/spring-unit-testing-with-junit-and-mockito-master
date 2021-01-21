@@ -55,7 +55,7 @@ jobs:
         run: echo ::set -env name=IMAGE_REPOSITORY::$(echo $GITHUB_RUN_NUMBER)
 
       - name: print tag
-        run: echo ${env.IMAGE_REPOSITORY}
+        run: echo ${{env.IMAGE_REPOSITORY}}
 
       - name: Build and push docker image
         uses: docker/build-push-action@v1
