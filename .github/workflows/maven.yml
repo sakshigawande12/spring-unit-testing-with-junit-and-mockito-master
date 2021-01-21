@@ -52,7 +52,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Read Docker Image Identifiers
-        run: echo ::set-env name=IMAGE_REPOSITORY::echo $GITHUB_RUN_NUMBER
+        run: echo ::set -env name=IMAGE_REPOSITORY::$(echo $GITHUB_RUN_NUMBER)
 
       - name: Build and push docker image
         uses: docker/build-push-action@v2
