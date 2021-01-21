@@ -68,14 +68,14 @@ jobs:
           tags: ${{env.IMAGE_REPOSITORY}}
 
       - name: Build and push docker image2
-          uses: docker/build-push-action@v1
-          with:
-            path: .
-            dockerfile: ./Dockerfile
-            push: true
-            registry: sakshigawande12
-            repository: maven-app
-            tags: ${{GITHUB_RUN_NUMBER}}
+        uses: docker/build-push-action@v1
+        with:
+          path: .
+          dockerfile: ./Dockerfile
+          push: true
+          registry: sakshigawande12
+          repository: maven-app
+          tags: ${{GITHUB_RUN_NUMBER}}
 
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
