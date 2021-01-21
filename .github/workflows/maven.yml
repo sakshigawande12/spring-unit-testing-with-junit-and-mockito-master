@@ -25,7 +25,7 @@ jobs:
           java-version: 1.8
 
       - name: Hello world
-        run: echo Hello world $FIRST_NAME $middle_name $Last_Name!
+        run: echo Hello world $FIRST_NAME $middle_name $Last_Name $GITHUB_RUN_NUMBER!
         env:
          FIRST_NAME: Mona
          middle_name: The
