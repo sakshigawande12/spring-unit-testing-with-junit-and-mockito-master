@@ -8,8 +8,6 @@ on:
     branches: [ github-action-for-docker-and-schedule-event ]
   pull_request:
     branches: [ github-action-for-docker-and-schedule-event ]
-  schedule:
-    - cron: '0 12 * * *'
   repository_dispatch:
 
 jobs:
