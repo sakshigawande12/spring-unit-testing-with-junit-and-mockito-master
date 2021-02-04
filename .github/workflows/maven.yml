@@ -50,7 +50,7 @@ jobs:
              echo ::set -env name=commitmsg::$(git log --format=%B -n 1 ${{ github.event.after }})
 
       - name: show commit message
-        run: echo ${commitmsg}
+        run: echo "$commitmsg"
 
       - name: step1
         if: contains( env.commitmsg , 'try' )
