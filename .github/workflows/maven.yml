@@ -4,13 +4,12 @@
 name: Java CI with Maven
 
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-  schedule:
-    - cron: '0 12 * * *'
-  repository_dispatch:
+  #push:
+   # branches: [ github-action-for-docker-and-schedule-event ]
+  #pull_request:
+   # branches: [ github-action-for-docker-and-schedule-event ]
+  #repository_dispatch:
+  workflow_dispatch:
 
 jobs:
   job1:
@@ -23,7 +22,23 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Build with Maven
+
+      - name: Hello world
+        run: echo $GITHUB_RUN_NUMBER
+
+      - name: print env
+        run: env
+
+      - name: Validate code
+        run: mvn validate
+
+      - name: Compile
+        run: mvn clean compile
+
+      - name: Testing
+        run: mvn test
+
+      - name: Create artifact
         run: mvn -B package --file pom.xml
 
       - name: Set up Docker Buildx
@@ -35,42 +50,47 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
+      - name: Build Docker image
+        run: docker build --file Dockerfile --tag sakshigawande12/maven-app:$GITHUB_RUN_NUMBER .
+
+      - name: push Docker image
+        run: docker push  sakshigawande12/maven-app:$GITHUB_RUN_NUMBER
+
+      - name: Read Docker Image Identifiers
+        run: echo ::set -env name=IMAGE_REPOSITORY::$(echo $GITHUB_RUN_NUMBER)
+
+      - name: print tag
+        run: echo ${{env.IMAGE_REPOSITORY}}
+
       - name: Build and push docker image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v1
         with:
-          context: .
-          file: ./Dockerfile
+          path: .
+          dockerfile: ./Dockerfile
           push: true
-          tags: sakshigawande12/app:latest
-  job2:
-    name: ping-pong
-    runs-on: ubuntu-latest
-    steps:
-      - name: PING - Dispatch initiating repository event
-        if: github.event.action != 'pong'
-        run: |
-          curl -X POST https://api.github.com/repos/sakshigawande12/HelloWorld/dispatches \
-          -H 'Accept: application/vnd.github.everest-preview+json' \
-          -u ${{ secrets.ACCESS_TOKEN }} \
-          --data '{"event_type": "ping", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
-      - name: ACK - Acknowledge pong from remote repository
-        if: github.event.action == 'pong'
-        run: |
-          echo "PONG received from '${{ github.event.client_payload.repository }}'" && \
-          curl -X POST https://api.github.com/repos/sakshigawande12/HelloWorld/dispatches \
-          -H 'Accept: application/vnd.github.everest-preview+json' \
-          -u ${{ secrets.ACCESS_TOKEN }} \
-          --data '{"event_type": "ack", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
-           
-  job3:
-    name: sonarcloud
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: SonarCloud Scan
-        run: mvn sonar:sonar -Dsonar.projectKey=sakshigawande12_spring-unit-testing-with-junit-and-mockito-master -Dsonar.organization=sakshigawande12 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
+          registry: sakshigawande12
+          repository: maven-app
+          tags: ${{env.IMAGE_REPOSITORY}}
+
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/maven@master
+        continue-on-error: true
         env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          command: monitor
+
+      - name: Run Snyk to check Docker image for vulnerabilities
+          # Snyk can be used to break the build when it detects vulnerabilities.
+          # In this case we want to upload the issues to GitHub Code Scanning
+        continue-on-error: true
+        uses: snyk/actions/docker@master
+        env:
+            # In order to use the Snyk Action you will need to have a Snyk API token.
+            # More details in https://github.com/snyk/actions#getting-your-snyk-token
+            # or you can signup for free at https://snyk.co/SignUpGH
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          image: sakshigawande12/maven-app:$GITHUB_RUN_NUMBER
+          args: --file=Dockerfile
+
