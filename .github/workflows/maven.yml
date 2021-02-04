@@ -4,11 +4,6 @@
 name: Java CI with Maven
 
 on:
-  #push:
-   # branches: [ github-action-for-docker-and-schedule-event ]
-  #pull_request:
-   # branches: [ github-action-for-docker-and-schedule-event ]
-  #repository_dispatch:
   workflow_dispatch:
 
 jobs:
