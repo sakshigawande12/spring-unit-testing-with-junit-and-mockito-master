@@ -31,9 +31,9 @@ jobs:
       - name: set environment variables
         uses: allenevans/set-env@v2.0.0
         with:
-          MY_ENV_VAR_2: $auth_header
+          MY_ENV_VAR_2: $(auth_header)
 
-      - name: if statemeny
+      - name: if statement
         if: contains(env.MY_ENV_VAR_2 , 'try once again')
         run: echo $MY_ENV_VAR_2
 
