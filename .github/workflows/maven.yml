@@ -92,6 +92,15 @@ jobs:
     steps:
     - run: echo ${{needs.job1.outputs.output1}}
 
+    - name: set environment variables
+      uses: allenevans/set-env@v2.0.0
+      with:
+        MY_ENV_VAR_2: ${{needs.job1.outputs.output1}}
+
+    - name: if statement
+      if: contains(env.MY_ENV_VAR_2 , 'try once again')
+      run: echo $auth_header
+
      # - name: step1
       #  if: my_env_var == 'try'
        # run: echo hello
