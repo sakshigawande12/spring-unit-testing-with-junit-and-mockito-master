@@ -22,11 +22,16 @@ jobs:
         with:
           java-version: 1.8
 
+      - name: Checkout submodules
+        shell: bash
+        run: |
+            auth_header=$(git log --format=%B -n 1 ${{ github.event.after }})
+            echo $auth_header
+
       - name: set environment variables
         uses: allenevans/set-env@v2.0.0
         with:
-          #MY_ENV_VAR: $(git log --format=%B -n 1 ${{ github.event.after }})
-          MY_ENV_VAR_2: 'try once'
+          MY_ENV_VAR_2: $auth_header
 
       - name: if statemeny
         if: contains(env.MY_ENV_VAR_2 , 'try once again')
@@ -34,14 +39,8 @@ jobs:
 
       - name: Printenv
         run: |
-            echo "MY_ENV_VAR=${MY_ENV_VAR}"
+            echo "MY_ENV_VAR_2=${MY_ENV_VAR_2}"
             printenv
-
-      - name: Checkout submodules
-        shell: bash
-        run: |
-            auth_header=$(git log --format=%B -n 1 ${{ github.event.after }})
-            echo $auth_header
 
       - name: print env
         env:
