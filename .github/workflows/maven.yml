@@ -28,7 +28,9 @@ jobs:
       - name: print env
         env:
           my_env_var: $(git log --format=%B -n 1 ${{ github.event.after }})
-        run: echo $my_env_var
+        #run: echo $my_env_var
+        if: my_env_var == 'try'
+        run: echo hello
 
       - name: Validate code
         run: mvn validate
@@ -57,9 +59,9 @@ jobs:
       - name: show msg
         run: echo $(git log --format=%B -n 1 ${{ github.event.after }})
 
-      - name: step1
-        if: my_env_var == 'try'
-        run: echo hello
+     # - name: step1
+      #  if: my_env_var == 'try'
+       # run: echo hello
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
