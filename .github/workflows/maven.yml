@@ -78,7 +78,6 @@ jobs:
 
       - name: show commit message
         run: echo $COMMIT_MSG
-      ll
 
   job2:
     runs-on: ubuntu-latest
