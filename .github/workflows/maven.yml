@@ -99,7 +99,7 @@ jobs:
 
     - name: if statement
       if: contains(env.MY_ENV_VAR_2 , 'try once again')
-      run: echo $auth_header
+      run: echo ${{needs.job1.outputs.output1}}
 
      # - name: step1
       #  if: my_env_var == 'try'
