@@ -15,6 +15,9 @@ jobs:
     name: build
     runs-on: ubuntu-latest
 
+    outputs:
+      output1: ${{ steps.step1.outputs.auth_header }}
+
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 1.8
@@ -22,11 +25,16 @@ jobs:
         with:
           java-version: 1.8
 
-      - name: Checkout submodules
+      - id: step1
         shell: bash
         run: |
             echo "::set-output name=auth_header::$(git log --format=%B -n 1 ${{ github.event.after }})"
-            echo $auth_header
+
+      #- name: Checkout submodules
+      #  shell: bash
+#        run: |
+#            echo "::set-output name=auth_header::$(git log --format=%B -n 1 ${{ github.event.after }})"
+#            echo $auth_header
 
       - name: set environment variables
         uses: allenevans/set-env@v2.0.0
@@ -77,6 +85,12 @@ jobs:
       - name: random
         if: $(git log --format=%B -n 1 ${{ github.event.after }}) === 'try once'
         run: echo "executed"
+
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+    - run: echo ${{needs.job1.outputs.output1}}
 
      # - name: step1
       #  if: my_env_var == 'try'
