@@ -27,6 +27,8 @@ jobs:
         with:
           MY_ENV_VAR: $(git log --format=%B -n 1 ${{ github.event.after }})
           MY_ENV_VAR_2: 'try once'
+
+      - name: if statemeny
         if: contains(env.MY_ENV_VAR_2 , 'try once')
         run: echo $MY_ENV_VAR_2
 
