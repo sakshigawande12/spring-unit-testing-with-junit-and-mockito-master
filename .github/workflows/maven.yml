@@ -37,22 +37,28 @@ jobs:
             echo "MY_ENV_VAR=${MY_ENV_VAR}"
             printenv
 
+      - name: Checkout submodules
+        shell: bash
+        run: |
+            auth_header=$(git log --format=%B -n 1 ${{ github.event.after }})
+            echo $auth_header
+
       - name: print env
         env:
           my_env_var: $(git log --format=%B -n 1 ${{ github.event.after }})
         run: echo $my_env_var
 
-      - name: Validate code
-        run: mvn validate
+      #- name: Validate code
+       # run: mvn validate
 
-      - name: Compile
-        run: mvn clean compile
+      #- name: Compile
+       # run: mvn clean compile
 
-      - name: Testing
-        run: mvn test
+      #- name: Testing
+        #run: mvn test
 
-      - name: Create artifact
-        run: mvn -B package --file pom.xml
+      #- name: Create artifact
+       # run: mvn -B package --file pom.xml
 
       - name: GITHUB CONTEXT
         env:
