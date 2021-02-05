@@ -29,7 +29,7 @@ jobs:
         env:
           my_env_var: $(git log --format=%B -n 1 ${{ github.event.after }})
         #run: echo $my_env_var
-        if: my_env_var == 'try'
+        #if: my_env_var == 'try'
         run: echo hello
 
       - name: Validate code
