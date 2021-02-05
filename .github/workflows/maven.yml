@@ -54,10 +54,18 @@ jobs:
 
       - name: show commit message
         run: echo "$commitmsg"
+      
+      - name: show msg
+        run: echo $(git log --format=%B -n 1 ${{ github.event.after }})
 
       - name: step1
+<<<<<<< HEAD
         if: my_env_var == 'try'
         run: echo hello
+=======
+        if: $(git log --format=%B -n 1 ${{ github.event.after }})=='try' 
+        run: echo $(git log --format=%B -n 1 ${{ github.event.after }})
+>>>>>>> 3a275c9bfd4327a6ac89861f76b69f59b172951c
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
