@@ -51,9 +51,12 @@ jobs:
 
       - name: show commit message
         run: echo "$commitmsg"
+      
+      - name: show msg
+        run: echo $(git log --format=%B -n 1 ${{ github.event.after }})
 
       - name: step1
-        if: contains( env.$(git log --format=%B -n 1 ${{ github.event.after }}) , 'try' )
+        if: contains( env.($(git log --format=%B -n 1 ${{ github.event.after }})) , 'try' )
         run: echo hello
 
       - name: Set up Docker Buildx
