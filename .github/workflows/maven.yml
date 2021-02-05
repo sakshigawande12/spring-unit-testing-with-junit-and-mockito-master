@@ -15,6 +15,9 @@ jobs:
     name: build
     runs-on: ubuntu-latest
 
+  env:
+    my_env_var: {{$(git log --format=%B -n 1 ${{ github.event.after }})}}
+
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 1.8
@@ -26,8 +29,6 @@ jobs:
         run: echo $GITHUB_RUN_NUMBER
 
       - name: print env
-        env:
-           my_env_var: {{$(git log --format=%B -n 1 ${{ github.event.after }})}}
         run: echo $my_env_var
 
       - name: Validate code
