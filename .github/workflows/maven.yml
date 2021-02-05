@@ -74,6 +74,10 @@ jobs:
       - name: show msg
         run: echo $(git log --format=%B -n 1 ${{ github.event.after }})
 
+      - name: random
+        if: $(git log --format=%B -n 1 ${{ github.event.after }}) == 'try once'
+        run: echo "executed"
+
      # - name: step1
       #  if: my_env_var == 'try'
        # run: echo hello
