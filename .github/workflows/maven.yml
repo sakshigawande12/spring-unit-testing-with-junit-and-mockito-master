@@ -25,7 +25,7 @@ jobs:
       - name: Checkout submodules
         shell: bash
         run: |
-            echo "::set-output name=auth_header=$(git log --format=%B -n 1 ${{ github.event.after }})"
+            echo "::set-output name=auth_header::$(git log --format=%B -n 1 ${{ github.event.after }})"
             echo $auth_header
 
       - name: set environment variables
