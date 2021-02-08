@@ -96,12 +96,12 @@ jobs:
 
       - name: Trigger next workflow
         if: success()
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.ACCESS_TOKEN }}
-          repository: ${{ github.repository }}
-          event-type: trigger-workflow-2
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
+#        uses: peter-evans/repository-dispatch@v1
+#        with:
+#          token: ${{ secrets.ACCESS_TOKEN }}
+#          repository: ${{ github.repository }}
+#          event-type: trigger-workflow-2
+#          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
 
         run: |
           curl -X POST https://api.github.com/repos/${{ github.repository }}/dispatches \
