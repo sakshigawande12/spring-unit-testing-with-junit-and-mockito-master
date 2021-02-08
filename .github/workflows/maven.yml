@@ -43,24 +43,32 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: sakshigawande12/app:latest
-  job2:
-    name: ping-pong
-    needs: job1
-    runs-on: ubuntu-latest
-    steps:
-      - name: PING - Dispatch initiating repository event
-        if: github.event.action != 'pong'
+
+      - name: Trigger next workflow
+          if: success()
         run: |
-          curl -X POST https://api.github.com/repos/sakshigawande12/HelloWorld/dispatches \
+          curl -X POST https://api.github.com/repos/${{ github.repository }}/dispatches \
           -H 'Accept: application/vnd.github.everest-preview+json' \
           -u ${{ secrets.ACCESS_TOKEN }} \
-          --data '{"event_type": "ping", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
-      - name: ACK - Acknowledge pong from remote repository
-        if: github.event.action == 'pong'
-        run: |
-          echo "PONG received from '${{ github.event.client_payload.repository }}'" && \
-          curl -X POST https://api.github.com/repos/sakshigawande12/HelloWorld/dispatches \
-          -H 'Accept: application/vnd.github.everest-preview+json' \
-          -u ${{ secrets.ACCESS_TOKEN }} \
-          --data '{"event_type": "ack", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
+          --data '{"event_type": "trigger-workflow-3", "client_payload": {"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}}'
+#  job2:
+#    name: ping-pong
+#    needs: job1
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: PING - Dispatch initiating repository event
+#        if: github.event.action != 'pong'
+#        run: |
+#          curl -X POST https://api.github.com/repos/sakshigawande12/HelloWorld/dispatches \
+#          -H 'Accept: application/vnd.github.everest-preview+json' \
+#          -u ${{ secrets.ACCESS_TOKEN }} \
+#          --data '{"event_type": "ping", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
+#      - name: ACK - Acknowledge pong from remote repository
+#        if: github.event.action == 'pong'
+#        run: |
+#          echo "PONG received from '${{ github.event.client_payload.repository }}'" && \
+#          curl -X POST https://api.github.com/repos/sakshigawande12/HelloWorld/dispatches \
+#          -H 'Accept: application/vnd.github.everest-preview+json' \
+#          -u ${{ secrets.ACCESS_TOKEN }} \
+#          --data '{"event_type": "ack", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
 
