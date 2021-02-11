@@ -36,24 +36,24 @@ jobs:
 #            echo "::set-output name=auth_header::$(git log --format=%B -n 1 ${{ github.event.after }})"
 #            echo $auth_header
 
-      - name: set environment variables
-        uses: allenevans/set-env@v2.0.0
-        with:
-          MY_ENV_VAR_2: 'try once again'
-
-      - name: if statement
-        if: contains(env.MY_ENV_VAR_2 , 'try once again')
-        run: echo $auth_header
-
-      - name: Printenv
-        run: |
-            echo "MY_ENV_VAR_2=${MY_ENV_VAR_2}"
-            printenv
-
-      - name: print env
-        env:
-          my_env_var: $(git log --format=%B -n 1 ${{ github.event.after }})
-        run: echo $my_env_var
+#      - name: set environment variables
+#        uses: allenevans/set-env@v2.0.0
+#        with:
+#          MY_ENV_VAR_2: 'try once again'
+#
+#      - name: if statement
+#        if: contains(env.MY_ENV_VAR_2 , 'try once again')
+#        run: echo $auth_header
+#
+#      - name: Printenv
+#        run: |
+#            echo "MY_ENV_VAR_2=${MY_ENV_VAR_2}"
+#            printenv
+#
+#      - name: print env
+#        env:
+#          my_env_var: $(git log --format=%B -n 1 ${{ github.event.after }})
+#        run: echo $my_env_var
 
       #- name: Validate code
        # run: mvn validate
@@ -67,17 +67,17 @@ jobs:
       #- name: Create artifact
        # run: mvn -B package --file pom.xml
 
-      - name: GITHUB CONTEXT
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-
-      - name: get commit message
-        run: |
-             echo ::set -env name=COMMIT_MSG::$(git log --format=%B -n 1 ${{ github.event.after }})
-
-      - name: show commit message
-        run: echo $COMMIT_MSG
+#      - name: GITHUB CONTEXT
+#        env:
+#          GITHUB_CONTEXT: ${{ toJson(github) }}
+#        run: echo "$GITHUB_CONTEXT"
+#
+#      - name: get commit message
+#        run: |
+#             echo ::set -env name=COMMIT_MSG::$(git log --format=%B -n 1 ${{ github.event.after }})
+#
+#      - name: show commit message
+#        run: echo $COMMIT_MSG
 
   job2:
     runs-on: ubuntu-latest
@@ -91,7 +91,7 @@ jobs:
         MY_ENV_VAR_2: ${{needs.job1.outputs.output1}}
 
     - name: if statement
-      if: contains(env.MY_ENV_VAR_2 , 'try once again')
+      if: contains(env.MY_ENV_VAR_2 , 'deploy to prod')
       run: echo ${{needs.job1.outputs.output1}}
 
      # - name: step1
