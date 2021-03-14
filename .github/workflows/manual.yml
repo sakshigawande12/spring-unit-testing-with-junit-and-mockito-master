@@ -1,10 +1,7 @@
-name: Workflow-2
+name: manual workflow
 
 on:
-#  push:
-#    branches: [ github-action-for-docker-and-schedule-event ]
-  repository_dispatch:
-    types: [trigger-workflow-2]
+  workflow_dispatch:
 
 jobs:
   job1:
