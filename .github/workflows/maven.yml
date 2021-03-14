@@ -8,10 +8,8 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-  schedule:
-    - cron: '0 12 * * *'
   repository_dispatch:
-    types: [trigger-workflow-2]
+    types: [trigger-workflow-1]
   
 jobs:
   job1:
@@ -50,7 +48,7 @@ jobs:
           curl -X POST https://api.github.com/repos/${{ github.repository }}/dispatches \
           -H 'Accept: application/vnd.github.everest-preview+json' \
           -u ${{ secrets.ACCESS_TOKEN }} \
-          --data '{"event_type": "trigger-workflow-3", "client_payload": {"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}}'
+          --data '{"event_type": "trigger-workflow-2", "client_payload": {"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}}'
 #  job2:
 #    name: ping-pong
 #    needs: job1
