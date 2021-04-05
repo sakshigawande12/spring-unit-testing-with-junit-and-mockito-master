@@ -25,7 +25,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/knowledge-portal-rest" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tide/devops-spring-dummy" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.16113281" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -93,13 +93,17 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1610706050844">
+    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1611734543661">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1610706050844" />
-    <state x="372" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1610454373723">
+    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1611734543661" />
+    <state x="372" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1612178336714">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="372" y="224" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1610454373723" />
+    <state x="372" y="224" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1612178336714" />
+    <state x="67" y="123" width="1289" height="547" key="new project wizard" timestamp="1611734524154">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="67" y="123" width="1289" height="547" key="new project wizard/67.27.1299.741@67.27.1299.741" timestamp="1611734524154" />
   </component>
 </project>
