@@ -1,8 +1,6 @@
 name: Workflow-2
 
 on:
-#  push:
-#    branches: [ github-action-for-docker-and-schedule-event ]
   repository_dispatch:
     types: [snyk-scan]
 

@@ -5,11 +5,7 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ manual-trigger-using-github-actions ]
-  pull_request:
-    branches: [ master ]
-  repository_dispatch:
-    types: [trigger-workflow-1]
+    branches: [ repository-dispatch-event-example ]
   
 jobs:
   job1:
