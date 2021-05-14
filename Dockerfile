@@ -1,3 +1,5 @@
+FROM hadolint/hadolint:latest as hadolint
+
 FROM openjdk:jre-alpine
 
 WORKDIR /java-example
