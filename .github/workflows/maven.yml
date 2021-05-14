@@ -22,7 +22,7 @@ jobs:
         run: mvn -B package --file pom.xml
 
       - name: Docker Lint
-        run: hadolint Dockerfile
+        run:  docker run --rm -i hadolint/hadolint < Dockerfile
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
