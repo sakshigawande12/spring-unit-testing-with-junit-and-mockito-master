@@ -22,7 +22,7 @@ jobs:
         run: mvn -B package --file pom.xml
 
       - name: Docker Lint
-        run:  docker run --rm -i hadolint/hadolint hadolint --ignore DL3000 --ignore DL3020 - < Dockerfile
+        run:  docker run --rm -i hadolint/hadolint hadolint --ignore DL3000 --ignore DL3020 --ignore DL3007 --ignore DL3025 DL4003 - < Dockerfile
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
