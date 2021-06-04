@@ -31,42 +31,33 @@ jobs:
         run: |
             echo "::set-output name=auth_header::$(git log --format=%B -n 1 ${{ github.event.after }})"
 
-      #- name: Checkout submodules
-      #  shell: bash
-#        run: |
-#            echo "::set-output name=auth_header::$(git log --format=%B -n 1 ${{ github.event.after }})"
-#            echo $auth_header
+      - name: Validate code
+        run: mvn validate
 
-#      - name: set environment variables
-#        uses: allenevans/set-env@v2.0.0
-#        with:
-#          MY_ENV_VAR_2: 'try once again'
-#
-#      - name: if statement
-#        if: contains(env.MY_ENV_VAR_2 , 'try once again')
-#        run: echo $auth_header
-#
-#      - name: Printenv
-#        run: |
-#            echo "MY_ENV_VAR_2=${MY_ENV_VAR_2}"
-#            printenv
-#
-#      - name: print env
-#        env:
-#          my_env_var: $(git log --format=%B -n 1 ${{ github.event.after }})
-#        run: echo $my_env_var
+      - name: Compile
+        run: mvn clean compile
 
-      #- name: Validate code
-       # run: mvn validate
+      - name: Testing
+        run: mvn test
 
-      #- name: Compile
-       # run: mvn clean compile
+      - name: Create artifact
+        run: mvn -B package --file pom.xml
+        
+      - name: Build and push docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: sakshigawande12/app:latest
 
-      #- name: Testing
-        #run: mvn test
-
-      #- name: Create artifact
-       # run: mvn -B package --file pom.xml
+      - name: Trigger next workflow
+        if: success()
+        run: |
+          curl -X POST https://api.github.com/repos/${{ github.repository }}/dispatches \
+          -H 'Accept: application/vnd.github.everest-preview+json' \
+          -u ${{ secrets.ACCESS_TOKEN }} \
+          --data '{"event_type": "trigger-workflow-2", "client_payload": {"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}}'
 
 #      - name: GITHUB CONTEXT
 #        env:
@@ -131,21 +122,7 @@ jobs:
         #with:
          # image: sakshigawande12/maven-app:$GITHUB_RUN_NUMBER
           #args: --file=Dockerfile
-      - name: Build and push docker image
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: ./Dockerfile
-          push: true
-          tags: sakshigawande12/app:latest
-
-      - name: Trigger next workflow
-        if: success()
-        run: |
-          curl -X POST https://api.github.com/repos/${{ github.repository }}/dispatches \
-          -H 'Accept: application/vnd.github.everest-preview+json' \
-          -u ${{ secrets.ACCESS_TOKEN }} \
-          --data '{"event_type": "trigger-workflow-2", "client_payload": {"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}}'
+          
 #  job2:
 #    name: ping-pong
 #    needs: job1
