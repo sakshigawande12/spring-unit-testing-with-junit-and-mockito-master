@@ -1,23 +1,8 @@
 name: run-test
 on: 
   workflow_dispatch:
-    inputs:
-      caption:
-        description: "Workflow caption:"
-        required: false
-        default: "HELLO WORLD!"
-# jobs:
-#   my-job:
-#   caption: ${{ github.event.inputs.caption }}
-
-
-# name: manual workflow
-
-# on:
-#   workflow_dispatch:
 
 jobs:
-  caption: ${{ github.event.inputs.caption }}
   job1:
     name: build
     runs-on: ubuntu-latest
