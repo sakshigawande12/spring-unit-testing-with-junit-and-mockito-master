@@ -6,8 +6,7 @@ name: Java CI with Maven
 on:
   push:
     branches: [ feature/ops-init-demo]
-#  pull_request:
-#    branches: [ master ]
+
   repository_dispatch:
     types: [trigger-workflow-2]
   
